@@ -24,7 +24,7 @@ const maxSubarray = arr => {
 const removeDuplicates = arr => arr.length - [... new Set(arr)].length
 //console.log(removeDuplicates([-2, -3, -4, -1, -2, -1, -5, -3, -4, -3]))
 
-const stringToArr = str => str.substring(1, str.length-1).split(', ').map(num=>+num)
+const stringToArr = str => str.substring(1, str.length-1).split(', ').map(ele => +ele)
 const scaleBalancing = strArr => {
     const scaleWeights = stringToArr(strArr[0])
     const leftWeight = scaleWeights[0]
@@ -50,7 +50,7 @@ const scaleBalancing = strArr => {
     }
     return 'not possible'
 }
-//console.log(scaleBalancing(['[13, 4]', '[1, 2, 3, 6, 14]']))
+// console.log(stringToArr('[13, 4]'))
 
 class Node{
     constructor(val=0) {
@@ -94,7 +94,9 @@ const populateBinaryTree = (arr, index) => {
         if(arr[Math.floor(index/2)] === '#') index++
         const root = new Node(arr[index])
         root.left = populateBinaryTree(arr, 1 + index * 2)
+        console.log('index: ', 1 + index * 2, 'left node: ',root.left)
         root.right = populateBinaryTree(arr, 2 + index * 2)
+        console.log('index: ',  2 + index * 2, 'right node: ',root.right)
         return root
     }
     return null
@@ -116,19 +118,19 @@ const preOrderTraversal = strArr => {
     const root = populateBinaryTree(strArr, 0)
     preOrder(root)
 }
-//  preOrderTraversal(['2', '6', '#'])
-preOrderTraversal([
-  "5",
-  "2",
-  "6",
-  "1",
-  "9",
-  "#",
-  "8",
-  "#",
-  "#",
-  "#",
-  "#",
-  "4",
-  "#",
-]);
+ preOrderTraversal(['2', '6', '#'])
+// preOrderTraversal([
+//   "5",
+//   "2",
+//   "6",
+//   "1",
+//   "9",
+//   "#",
+//   "8",
+//   "#",
+//   "#",
+//   "#",
+//   "#",
+//   "4",
+//   "#",
+// ]);
